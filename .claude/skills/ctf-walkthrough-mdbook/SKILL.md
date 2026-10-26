@@ -40,7 +40,7 @@ Use this skill when the user supplies the text of a capture-the-flag challenge (
 ## Redaction
 
 - Always redact flags, passwords, hashes and keys (and any other secret credential) everywhere: prose, prompts, commands and output.
-- Use consistent placeholders, for example `THM{REDACTED}` for flags and `<REDACTED>` for other secrets. When the flag is a value such as a dollar amount, use `$REDACTED`.
+- Use consistent placeholders, for example `THM{REDACTED}` for flags and `<REDACTED>` for other secrets. When the flag is a value such as a dollar amount, use `$REDACTED`. In blockquotes and prose a redacted value is written as bold inline code, for example ``**`$REDACTED`**``. Inside a fenced code block, where formatting does not apply, the plain placeholder is used.
 - Do not add a separate closing line with the flag. The redacted value already appears redacted in the answer where it was obtained.
 
 ## Language and tone
@@ -68,6 +68,7 @@ Use this skill when the user supplies the text of a capture-the-flag challenge (
   - Leave a blank quoted line before any `---` that follows text, so that it is not read as a heading underline.
   - Write headings such as `### Tools Available:` as bold lines instead (`**Tools Available:**`, with a trailing backslash when text follows on the next line). Real headings would become headings of the page and entries in the sidebar.
 - Leave a blank line after a blockquote before the next paragraph.
+- A tool or function name that the source shows as bold code is written as plain bold, without backticks (for example `**get_events**`).
 - Commands and plain terminal output go in fenced code blocks with the `text` language tag (or the matching language).
 
 ## Callouts
