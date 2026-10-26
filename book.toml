@@ -6,3 +6,5 @@ language = "en"
 [output.html]
 no-section-label = true
 smart-punctuation = false
+default-theme = "ayu"
+preferred-dark-theme = "ayu"

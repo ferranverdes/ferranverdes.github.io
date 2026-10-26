@@ -12,7 +12,7 @@ Use this skill when the user supplies the text of a capture-the-flag challenge (
 - The repository root is an mdBook project titled "PwnLog_". All paths below are relative to the repository root.
 - Chapters live in `src/`. `src/SUMMARY.md` is the table of contents.
 - Do not touch `book/` (generated and gitignored) or `.github/workflows/`.
-- `book.toml` sets `smart-punctuation = false`, so that quotes and dashes in quoted prompts and output stay as typed, and `no-section-label = true`, so that the sidebar shows no chapter numbers. Leave both settings in place and do not change the rest of the file.
+- `book.toml` sets `smart-punctuation = false`, so that quotes and dashes in quoted prompts and output stay as typed, `no-section-label = true`, so that the sidebar shows no chapter numbers, and `default-theme = "ayu"` with `preferred-dark-theme = "ayu"`, so that the ayu color theme is the default. Leave these settings in place and do not change the rest of the file.
 
 ## Layout
 
