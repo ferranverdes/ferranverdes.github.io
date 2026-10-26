@@ -2,3 +2,7 @@
 title = "PwnLog_"
 authors = ["Ferran"]
 language = "en"
+
+[output.html]
+no-section-label = true
+smart-punctuation = false
