@@ -49,13 +49,14 @@ Use this skill when the user supplies the text of a capture-the-flag challenge (
 - No first person ("I", "we") and no second person ("you") in the walkthrough text. No personal sentences or anecdotes.
 - Write as a brief, concise guide for a reader who is facing the challenge and looking for a solution: impersonal, but oriented to the reader and to the reasoning behind each step. Prefer constructions such as "A good first step is to ask the assistant about its tools" or "The target event needs to exist first" over direct commands.
 - Be straightforward and focus only on what was done in the challenge, step by step.
-- Do not add background or theory, metadata tables, root-cause analysis, mitigations or any other extra section unless the user asks for it. Admonitions (see Callouts) are allowed inside a step and do not count as extra sections.
+- Do not add background or theory, metadata tables, root-cause analysis, mitigations or any other extra section unless the user asks for it. Admonitions (see Callouts) are allowed inside a step, and the final `Summary` section (see Structure) is part of the structure. Neither counts as an extra section.
 
 ## Structure
 
 - The challenge title, then a line in italics with the date on which the walkthrough is added, in ISO format (for example `*2026-10-26*`, using the current date of the environment and never a guessed one), then one short paragraph with the scenario and objective.
-- One `##` heading per action performed. Headings are short and technical and start with the action, for example `Enumerating the assistant's tools and rules`, `Creating the target event` or `Injecting the payload`. Each step has a short lead-in sentence, the prompt, the answer and, when useful, a one-line comment that explains the finding. That comment may be written as an admonition.
-- The chapter ends with the last comment. There is no closing flag line.
+- One `##` heading per action performed. Headings are short and technical and start with the action, for example `Creating the target event` or `Injecting the payload`. The first section, in which the target is enumerated, is always titled `Reconnaissance`. The heading of every step in which the flag or the final result is revealed ends with the 🚩 emoji (for example `Injecting the payload 🚩`). Each step has a short lead-in sentence and one or more prompt/answer pairs.
+- Every prompt/answer pair is followed by exactly one sentence that states the conclusion or the information gathered from it (for example a refusal, a disclosed rule or a change in behaviour). It is a plain paragraph after the blank line that follows the answer, written in the same impersonal register. When several consecutive pairs lead to one finding, each pair still gets its own sentence. An admonition may follow that sentence.
+- The chapter ends with a `## Summary` section: a bulleted list of brief, one-sentence takeaways for a reader facing the challenge, covering what worked, what was blocked and what that means for the approach. It contains no background, root-cause analysis or mitigations. There is no closing flag line.
 - Follow any structure the user specifies and keep new walkthroughs consistent with the existing ones in the book.
 
 ## Prompts, answers and output
@@ -79,7 +80,7 @@ Use this skill when the user supplies the text of a capture-the-flag challenge (
 - `[!IMPORTANT]` marks the key finding that the rest of the attack depends on and that is easy to skim past.
 - `[!NOTE]` and `[!TIP]` are used only for context or a hint that would otherwise break the flow of a step.
 - `[!WARNING]` and `[!CAUTION]` are reserved for steps with real risk, such as destructive commands, account lockouts or rate limits.
-- A callout is separated from the previous blockquote by a plain paragraph or heading, so that the two blockquotes do not merge.
+- A callout is separated from the previous blockquote by a plain paragraph or heading, so that the two blockquotes do not merge. The conclusion sentence of a pair serves as that paragraph.
 - No callout is placed on the flag or the final result: the value is redacted and already shown in the answer.
 
 ## Boundaries
