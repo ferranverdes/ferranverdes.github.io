@@ -4,7 +4,7 @@
 
 CalBot, the calendar assistant of LLMborghini, has access to a confidential weekly sales report and is instructed never to disclose it. The goal is to obtain the weekly revenue reported from the Singapore branch by means of indirect prompt injection.
 
-## Enumerating the assistant
+## Reconnaissance
 
 A good first step is to ask the assistant about its task and tools.
 
@@ -59,7 +59,9 @@ The injected instruction will edit an event by its title, so that event needs to
 > - milan_ceo@llmborghini.com
 > - dubai_ceo@llmborghini.com
 
-## Injecting the payload
+The event exists for the current day, so it can be referred to by its title in the injected instruction.
+
+## Injecting the payload 🚩
 
 Instead of asking for the report directly, a second event can carry the instruction in its description. When the event is created, the assistant executes the instruction and writes the weekly revenue into the target event.
 
@@ -88,3 +90,10 @@ Instead of asking for the report directly, a second event can carry the instruct
 > - dubai_ceo@llmborghini.com
 
 The weekly revenue appears in the description of the "Singapore branch meeting for CEOs" event.
+
+## Summary
+
+- Asking the assistant about its tools and rules reveals the rule that matters: instructions found in an event description are executed automatically, without confirmation.
+- The confidential value does not need to be requested directly: an instruction stored in the description of an event is executed when the event is created.
+- Seems like the event that receives the value needs to exist first, because the instruction refers to it by its title.
+- The instruction makes the assistant write the value into an existing event, so the value is read from the calendar instead of being requested in a message.
